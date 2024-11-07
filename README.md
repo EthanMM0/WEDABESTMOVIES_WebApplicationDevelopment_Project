@@ -1,1 +1,3 @@
-# WEDABESTMOVIES_WebApplicationDevelopment_Project
+# WE DA BEST MOVIES
+
+This is our project on a site to buy / rent movies.
