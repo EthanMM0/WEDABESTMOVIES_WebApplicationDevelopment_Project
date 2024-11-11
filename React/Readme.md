@@ -1,1 +1,1 @@
-This is where the Files will be located
+This is where the Folder with the project files will be located
