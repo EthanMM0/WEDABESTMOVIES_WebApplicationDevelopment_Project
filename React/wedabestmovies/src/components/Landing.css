@@ -1,0 +1,54 @@
+.landing-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .landing-header {
+    margin-bottom: 20px;
+  }
+  
+  .landing-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .landing-content {
+    margin-top: 20px;
+  }
+  
+  .hero-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .hero-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .movies-list {
+    margin-top: 30px;
+  }
+  
+  .movies-table {
+    margin: 0 auto;
+    width: 80%;
+    border-collapse: collapse;
+  }
+  
+  .movies-table th,
+  .movies-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .movies-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
