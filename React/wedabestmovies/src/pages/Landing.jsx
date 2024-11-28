@@ -154,4 +154,7 @@ function Landing() {
     </div>
   );
 }
+<<<<<<< HEAD
 export default Landing;
+=======
+>>>>>>> 57a94347cd30bd6774f22604dec71030895dbb1e

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, createContext } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Landing from './pages/Landing';
@@ -34,5 +35,21 @@ const App = () => {
     </AuthContext.Provider>
   );
 };
+=======
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Landing from './pages/Landing';
+import { CartProvider } from './components/CartState';
+
+const App = () => (
+  <CartProvider> 
+    <Router>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+      </Routes>
+    </Router>
+  </CartProvider>
+);
+>>>>>>> 57a94347cd30bd6774f22604dec71030895dbb1e
 
 export default App;
