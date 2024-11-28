@@ -1,64 +1,82 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../App';
 
+// Signin component
 const Signin = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const { signIn } = useContext(AuthContext); // Access signIn 
+  // State to manage form data
+  const [formData, setFormData] = useState({
+    username: '', 
+    password: '', 
+  });
+
+  // useNavigate hook for programmatic navigation
   const navigate = useNavigate();
 
-  // Retrieve user data from localStorage
-  const storedUserData = JSON.parse(localStorage.getItem('user'));
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Check if username exists
-    if (!storedUserData || storedUserData.username !== username) {
-      setError('Username not found.');
-      return;
-    }
-
-    // Check if password matches the username
-    if (storedUserData.password !== password) {
-      setError('Incorrect password.');
-      return;
-    }
-
-    // Clear error if login is successful
-    setError('');
-    signIn(username); // Updates user context
-    navigate('/profile'); // Redirects to Profile
+  // Function to handle input changes and update state
+  const handleChange = (e) => {
+    const { name, value } = e.target; 
+    setFormData({ ...formData, [name]: value }); // Update the specific field in formData
   };
 
+  // Function to handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission (page reload)
+    const { username, password } = formData; 
+
+    try {
+      // Make a POST request to the signin API endpoint
+      const response = await fetch('http://localhost:5000/api/signin', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json', // Specify that the request body is in JSON format
+        },
+        body: JSON.stringify({ username, password }), // Convert form data to JSON and send it
+      });
+
+      // If the response is successful 
+      if (response.ok) {
+        const data = await response.json(); // Parse the response JSON
+        alert(data.message); // Display a success msg
+        navigate('/'); // Redirect the user to the landing page
+      } else {
+        // If the response is not successful 
+        const errorData = await response.json(); // Parse the error response
+        alert(errorData.message || 'Something went wrong!'); // Display the error msg
+      }
+    } catch (error) {
+      // Handle any network / server errors
+      alert('Error signing in. Please try again later.');
+    }
+  };
+
+  // Render the signin form
   return (
     <div>
       <h2>Sign In</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="text"
-            placeholder="Enter username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error if any */}
+        {/* Input field for username */}
+        <input
+          type="text"
+          name="username" 
+          placeholder="Enter your username" 
+          value={formData.username} 
+          onChange={handleChange} // Update state when input changes
+        />
+
+        {/* Input field for password */}
+        <input
+          type="password"
+          name="password" 
+          placeholder="Enter your password" 
+          value={formData.password} 
+          onChange={handleChange} // Update state when input changes
+        />
+
+        {/* Submit button */}
         <button type="submit">Sign In</button>
       </form>
-      <button onClick={() => navigate('/signup')}>Don't have an account? Sign Up</button>
     </div>
   );
 };
 
-export default Signin;
+export default Signin; // Export the component for use elsewhere
