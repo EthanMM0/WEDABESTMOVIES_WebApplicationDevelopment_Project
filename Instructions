@@ -1,0 +1,3 @@
+To run the project make sure to have the node modules and have downloaded all the files
+
+use " npm start " and it will run both the frontend and backend at the same time this is important to keep the backend running while the frontend is running
