@@ -1,0 +1,62 @@
+/* General Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  /* Left Section: Navigation Links */
+  .navbar .nav-links {
+    display: flex;
+    gap: 20px; /* Space between links */
+  }
+  
+  .navbar .nav-links a,
+  .navbar .nav-links button {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .navbar .nav-links a:hover,
+  .navbar .nav-links button:hover {
+    color: #00bcd4; /* Hover effect */
+  }
+  
+  /* Center Section: Title */
+  .navbar .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    flex-grow: 1;
+  }
+  
+  /* Right Section: Logo */
+  .nav-logo {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 15px;
+    color: #fff;
+    text-decoration: none;
+    width: 50px;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .navbar .title {
+      font-size: 18px;
+    }
+    .navbar .nav-links a,
+    .navbar .nav-links button {
+      font-size: 16px;
+    }
+  }
+  
