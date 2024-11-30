@@ -1,6 +1,9 @@
+import '../components/Signin.css';
+
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../App';
+
 
 const Signin = () => {
   const { signIn } = useContext(AuthContext); // Access signIn function
@@ -46,6 +49,7 @@ const Signin = () => {
           placeholder="Enter your username"
           value={formData.username}
           onChange={handleChange}
+          className="username-input-in"
         />
         <input
           type="password"
@@ -53,8 +57,9 @@ const Signin = () => {
           placeholder="Enter your password"
           value={formData.password}
           onChange={handleChange}
+          className="password-input-in"
         />
-        <button type="submit">Sign In</button>
+        <button type="submit" className="signin-button">Sign In</button>
       </form>
     </div>
   );

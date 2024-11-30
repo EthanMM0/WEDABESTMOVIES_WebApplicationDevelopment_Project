@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../components/Signup.css';
 
 // Signup component
 const Signup = () => {
@@ -74,6 +75,7 @@ const Signup = () => {
           placeholder="Enter your name" 
           value={formData.name} 
           onChange={handleChange} // Update state on change
+          className="name-input-up"
         />
 
         {/* Input field for age */}
@@ -83,6 +85,7 @@ const Signup = () => {
           placeholder="Enter your age" 
           value={formData.age} 
           onChange={handleChange} // Update state on change
+          className="age-input-up"
         />
 
         {/* Input field for email */}
@@ -92,6 +95,7 @@ const Signup = () => {
           placeholder="Enter your email" 
           value={formData.email} 
           onChange={handleChange} // Update state on change
+          className="mail-input-up"
         />
 
         {/* Input field for username */}
@@ -101,6 +105,7 @@ const Signup = () => {
           placeholder="Enter a username" 
           value={formData.username} 
           onChange={handleChange} // Update state on change
+          className="username-input-up"
         />
 
         {/* Input field for password */}
@@ -110,10 +115,11 @@ const Signup = () => {
           placeholder="Enter a password" 
           value={formData.password} 
           onChange={handleChange} // Update state on change
+          className="password-input-up"
         />
 
         {/* Submit button */}
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="signup-button" >Sign Up</button>
       </form>
     </div>
   );
