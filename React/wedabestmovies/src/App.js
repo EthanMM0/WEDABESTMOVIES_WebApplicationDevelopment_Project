@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Landing from './pages/Landing';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
-
+import Profile from './pages/Profile';
 import Navbar from './components/Navbar';
 import { CartProvider } from './components/CartState';
 
@@ -28,7 +28,7 @@ const App = () => {
             <Route path="/" element={<Landing />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/signup" element={<Signup />} />
-
+            <Route path="/profile" element={user ? <Profile /> : <Navigate to="/signin" />} />
           </Routes>
         </Router>
       </CartProvider>
