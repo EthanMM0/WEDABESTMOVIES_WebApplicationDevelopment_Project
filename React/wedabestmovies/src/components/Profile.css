@@ -1,0 +1,52 @@
+/* Profile Page Styling */
+.profile-container {
+    width: 60%; 
+    margin: 0 auto; 
+    padding: 20px;
+    background-color: #f4f4f4; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .profile-container h2 {
+    font-size: 32px;
+    color: #333; 
+    text-align: center;
+    margin-bottom: 20px; 
+  }
+  
+  .profile-info p {
+    font-size: 18px;
+    margin: 10px 0; 
+  }
+  
+  .profile-info strong {
+    color: #555; 
+  }
+  
+  button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff6347; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; 
+  }
+  
+  button:hover {
+    background-color: #e53e3e; 
+  }
+  
+  .profile-info p {
+    font-weight: bold; 
+  }
+  
+  .no-user-message {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+  }
+  
