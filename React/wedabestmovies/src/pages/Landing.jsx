@@ -61,11 +61,7 @@ function Landing() {
 
   return (
     <div className="page-container">
-      <div className="logo-title-container">
-        <img src={Logo} alt="Logo" />
-        <h1>WE DA BEST MOVIES</h1>
-      </div>
-
+      
       <button className="create-button" onClick={handleCreateMovieList}>
         Create Movie List
       </button>

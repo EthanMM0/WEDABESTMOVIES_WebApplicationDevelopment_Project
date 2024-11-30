@@ -1,1 +1,3 @@
-This is where the Folder with the project files will be located
+# WE DA BEST MOVIES
+
+This is our project on a site to buy / rent movies.
