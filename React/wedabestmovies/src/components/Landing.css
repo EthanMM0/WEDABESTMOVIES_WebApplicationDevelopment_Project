@@ -193,3 +193,17 @@ h1 {
 .movie-list-item .button-container button:hover {
   background-color: #920816;
 }
+
+.add-all-to-cart-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.add-all-to-cart-button:hover {
+  background-color: #45a049;
+}

@@ -5,6 +5,7 @@ import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import Navbar from './components/Navbar';
+import CheckoutPage from './pages/CheckoutPage'; 
 import { CartProvider } from './components/CartState';
 
 // Create an Auth Context for managing user authentication state
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/signin" element={<Signin />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={user ? <Profile /> : <Navigate to="/signin" />} />
+            <Route path="/checkout" element={<CheckoutPage />} /> {/* Add CheckoutPage route */}
           </Routes>
         </Router>
       </CartProvider>

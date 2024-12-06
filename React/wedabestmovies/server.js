@@ -1,4 +1,4 @@
-// Load environment variables from the custom 'database.env' file
+// server.js
 require('dotenv').config({ path: './database.env' });
 
 const express = require('express');
@@ -6,13 +6,15 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const CheckoutOrder = require('./src/components/Checkout.js');
+
 const app = express();
 const port = 5000;
 
 // CORS configuration
 const corsOptions = {
   origin: 'http://localhost:3000', // Allow React frontend on localhost:3000
-  methods: 'GET,POST', // Specify allowed methods
+  methods: 'GET,POST,DELETE', // Specify allowed methods (added DELETE)
   allowedHeaders: 'Content-Type', // Specify allowed headers
 };
 
@@ -28,9 +30,13 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected successfully'))
   .catch((err) => console.error('Error connecting to MongoDB:', err.message)); // Log the error message
 
-// Import Routes (only for backend API)
+// Define routes for checkout
+const checkoutRoutes = require('./src/components/checkoutRoutes'); 
+app.use('/api', checkoutRoutes); // Mount the checkout routes
+
+// Define routes for authentication
 const authRoutes = require('./src/components/authRoutes');
-app.use('/api', authRoutes);
+app.use('/api', authRoutes); // Mount authentication routes
 
 // Start Server
 app.listen(port, () => {
